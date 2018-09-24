@@ -8,6 +8,14 @@ export function receiveTweets(tweets) {
   };
 }
 
+export function handleInitialData() {
+  return dispatch => {
+    return fetch("/tweets")
+      .then(res => res.json())
+      .then(tweets => dispatch(receiveTweets(tweets)));
+  };
+}
+
 export function addTweet(tweet) {
   return {
     type: ADD_TWEET,

@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./navbar";
 import NewTweet from "./newtweet";
 import AllTweets from "./AllTweets";
-import { handleInitialData } from "../actions/shared";
+import { handleInitialData } from "../actions/tweets";
 import { connect } from "react-redux";
 import { handleAddTweet } from "../actions/tweets";
 
