@@ -19,18 +19,6 @@ class App extends Component {
 
   postTweet = content => {
     this.props.dispatch(handleAddTweet(content));
-    // fetch("http://localhost:8080/tweets", {
-    //   method: "post",
-    //   headers: {
-    //     "Content-Type": "application/json; charset=utf-8"
-    //   },
-    //   body: JSON.stringify({ text: content })
-    // })
-    //   .then(response => response.json())
-    //   .then(tweet => {
-    //     this.setState({ tweets: [tweet, ...this.state.tweets] });
-    //   })
-    //   .catch(error => console.error(`Fetch Error =\n`, error));
   };
 
   render() {
