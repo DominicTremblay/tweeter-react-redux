@@ -2,6 +2,9 @@
 
 Our Tweeter App has been converted to React. However, we're going one step further by using Redux to manage the state of our app.
 
+- [Redux - Lecture Slides](Redux.pdf)
+- [Languages Landscape + functional programming(bonus)](functional_programming.pdf)
+
 ## Dependencies that we need for Redux
 
 - redux
@@ -14,7 +17,6 @@ Our Tweeter App has been converted to React. However, we're going one step furth
 Redux DevTools is a chrome extension. It gives you a better UI to see what's going on with the Redux store.
 
 [ReduxDevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
-
 
 ## Folder Structure
 
@@ -46,12 +48,7 @@ const store = createStore(reducer, applyMiddleware(thunk, logger))
 - import { Provider } from "react-redux";
 - The Provider component will wrap the App component and pass the store to it:
 
-    `ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.getElementById("root")
-    );`
+  `ReactDOM.render( <Provider store={store}> <App /> </Provider>, document.getElementById("root") );`
 
 ## Create the Action Creators for Loading Tweets
 
@@ -59,7 +56,7 @@ const store = createStore(reducer, applyMiddleware(thunk, logger))
 - Create the action handleInitalData in actions/tweets.js
 - handleInitialData takes care of the async call to the database
 
-## Create the Reducer Function 
+## Create the Reducer Function
 
 - The reducer function tells how to update the state
 - Switch case on the action type
@@ -82,24 +79,24 @@ const store = createStore(reducer, applyMiddleware(thunk, logger))
 - We can call handleInitialData with dispatch
 
   `componentDidMount() { this.props.dispatch(handleInitialData()); }`
- 
+
 * Our tweets should now be added on to the store
 
 ### Connecting AllTweets to the Store
 
 - We use connect to connect the component to the store
-  
+
   `export default connect()(AllTweets);`
 
 - We can also extract what properties on the state that we need on the component:
 
-    const mapStateToProps = ({ tweets }) => {
-      return {
-        tweets
-      };
-    };
+  const mapStateToProps = ({ tweets }) => {
+  return {
+  tweets
+  };
+  };
 
-    export default connect(mapStateToProps)(AllTweets);
+  export default connect(mapStateToProps)(AllTweets);
 
 - tweets is then available to AllTweets through props (this.props.tweets)
 
@@ -112,8 +109,6 @@ const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 - We need to update the reducer function to deal with ADD_TWEET
 
-## Dispatch the Action 
+## Dispatch the Action
 
 - We need to dispatch the handleAddTweet action in postTweet of App.js
-
-
